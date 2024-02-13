@@ -1,0 +1,61 @@
+package Produtos;
+
+import java.util.Locale;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.UUID;
+
+import Produtos.entities.alturaESexo;
+
+
+public class All {
+
+    public static void main(String[] args) {
+
+        Random random = new Random();    
+       
+        int mes = 1;
+        int dia = 1;
+        int status = 0;
+        
+
+        String insert = "INSERT INTO REGISTER_POINT(id,date,status,id_user) VALUES";
+        System.out.print(insert);
+        for (int i = 0; i < 30; i++) {
+            String userUuid = "e51739bb-9b6a-4db7-826c-93627781f4d1";
+        String horaEntrada = voltar0(random.nextInt(7,13));
+        String minutoEntrada = voltar0(random.nextInt(0,60));
+        String segundoentrada = voltar0(random.nextInt(0,60));
+
+        String horaSaida = voltar0(random.nextInt(14,20));
+        String muntoSaida = voltar0(random.nextInt(0,60));
+        String segundoSaida = voltar0(random.nextInt(0,60));
+            status = 0;
+            gerarSQL(horaEntrada, minutoEntrada, segundoentrada, Integer.toString(mes), Integer.toString(dia),userUuid,status);
+            status = 1;
+            gerarSQL(horaSaida, muntoSaida, segundoSaida,  Integer.toString(mes), Integer.toString(dia),userUuid,status);
+            mes ++;
+            dia++;
+            
+        }
+        
+    
+    }
+
+    public static  String voltar0(int numero){
+        String n = Integer.toString(numero);
+        if(n.length()==1){
+            return "0" + n;
+        }return n;
+    }
+
+    public static void gerarSQL(String hora, String minuto, String segundo, String mes, String dia, String userUuid,int status){
+        UUID uuid = UUID.randomUUID();
+        String anoMesDia =  "('" + uuid+"'" + ", "+ "'"+ 2024 +"-0"+ mes +"-"+ "0" + dia;
+        String horaMinutoSegundo = " " + hora + ":" + minuto + ":" + segundo + "'," + status +",'" + userUuid + "'" +"),";
+
+       System.out.print(anoMesDia +horaMinutoSegundo );
+
+    }
+    
+}
