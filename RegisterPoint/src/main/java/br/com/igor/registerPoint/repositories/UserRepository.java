@@ -8,5 +8,7 @@ import br.com.igor.registerPoint.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
+    User findByCpf(String cpf);
+
 
 }

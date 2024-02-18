@@ -28,13 +28,13 @@ import lombok.Setter;
 public class User {
 	
 	public User(UserDTO data) {
-		this.name = data.name();
-		this.age = data.age();
-		this.address = data.address();
-		this.cpf = data.cpf() ;
-		this.position = data.position();
-		this.department = data.department();
-		this.salary = data.salary();
+		this.name = data.getName();
+		this.age = data.getAge();
+		this.address = data.getAddress();
+		this.cpf = data.getCpf() ;
+		this.position = data.getPosition();
+		this.department = data.getDepartment();
+		this.salary = data.getSalary();
 		this.timestamp = LocalDateTime.now();
 
 	}
@@ -58,6 +58,9 @@ public class User {
     private BigDecimal salary;
     @Column(nullable = false)
     private LocalDateTime timestamp;
+    @Column(nullable = false,name = "COUNT_REGISTER")
+    private Integer countRegister;
+
     
 
 
