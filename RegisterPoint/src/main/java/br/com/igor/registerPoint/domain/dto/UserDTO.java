@@ -25,5 +25,6 @@ public class UserDTO {
     private BigDecimal salary;
     private LocalDateTime timestamp;
     private Integer countRegister;
+    private Boolean enabled;
     
 }

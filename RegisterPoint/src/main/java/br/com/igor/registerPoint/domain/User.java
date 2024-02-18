@@ -36,6 +36,8 @@ public class User {
 		this.department = data.getDepartment();
 		this.salary = data.getSalary();
 		this.timestamp = LocalDateTime.now();
+        this.countRegister = data.getCountRegister();
+        
 
 	}
 
@@ -60,6 +62,7 @@ public class User {
     private LocalDateTime timestamp;
     @Column(nullable = false,name = "COUNT_REGISTER")
     private Integer countRegister;
+    private Boolean enabled = true;
 
     
 
