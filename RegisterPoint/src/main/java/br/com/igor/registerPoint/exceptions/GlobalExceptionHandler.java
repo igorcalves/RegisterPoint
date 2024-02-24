@@ -28,5 +28,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler  {
         new ExceptionResponse(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse,HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(RegisterPointNotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handlerRegisterPointNotFoundExcpetion(Exception ex, WebRequest request){
+        ExceptionResponse exceptionResponse = 
+        new ExceptionResponse(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse,HttpStatus.NOT_FOUND);
+    }
     
 }

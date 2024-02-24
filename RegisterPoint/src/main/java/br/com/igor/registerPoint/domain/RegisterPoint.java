@@ -24,7 +24,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of="id")
-public class Register_Point {
+public class RegisterPoint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
