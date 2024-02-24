@@ -23,8 +23,8 @@ public class RegisterPointController {
     private RegisterPointService service;
 
     @GetMapping
-    public ResponseEntity<List<RegisterPointDto>> getAllRegisterByCpf(@RequestBody CpfDto data){
-        List<RegisterPointDto> records = service.getAllRegisterByCpf(data.cpf());
+    public ResponseEntity<StringBuilder> getAllRegisterByCpf(@RequestBody CpfDto data){
+        StringBuilder records = service.getAllRegisterByCpf(data.cpf());
 
         return ResponseEntity.ok().body(records);
         
