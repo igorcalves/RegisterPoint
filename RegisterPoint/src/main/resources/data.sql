@@ -627,3 +627,4 @@ INSERT INTO LEAVE_POINT(id,date,id_user) VALUES
 ('a685947a-a2d2-4e12-ad80-e24cd37fec1e', '2024-09-22','c2d8d98b-eb9a-485b-94de-79a5a0ee4605'),
 ('36c85152-a07c-4bcd-8c7e-e43e00bc79e4', '2024-09-08','c2d8d98b-eb9a-485b-94de-79a5a0ee4605'),
 ('7752f284-d2cf-4a99-b05a-6ab21360d147', '2024-10-14','7c918226-cdb7-496a-a6b4-1c74c0d50462');
+

@@ -2,6 +2,7 @@ package br.com.igor.registerPoint.controllers;
 
 import java.util.List;
 
+import br.com.igor.registerPoint.domain.dto.RegistePointSearchDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +24,8 @@ public class RegisterPointController {
     private RegisterPointService service;
 
     @GetMapping
-    public ResponseEntity<StringBuilder> getAllRegisterByCpf(@RequestBody CpfDto data){
-        StringBuilder records = service.getAllRegisterByCpf(data.cpf());
+    public ResponseEntity<StringBuilder> getAllRegisterByCpf(@RequestBody RegistePointSearchDTO data){
+        StringBuilder records = service.getAllRegisterByCpf(data);
 
         return ResponseEntity.ok().body(records);
         
