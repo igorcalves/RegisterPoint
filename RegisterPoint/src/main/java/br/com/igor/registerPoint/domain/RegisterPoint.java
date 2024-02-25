@@ -39,6 +39,13 @@ public class RegisterPoint {
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     private User user;
 
+    public RegisterPoint(User user,StatusCheck status,LocalDateTime now){
+        this.date = now;
+        this.status = status;
+        this.user = user;
+
+    }
+
 
 
     

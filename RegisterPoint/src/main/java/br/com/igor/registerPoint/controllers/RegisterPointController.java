@@ -5,10 +5,7 @@ import java.util.List;
 import br.com.igor.registerPoint.domain.dto.RegistePointSearchDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.igor.registerPoint.domain.RegisterPoint;
@@ -30,6 +27,11 @@ public class RegisterPointController {
         return ResponseEntity.ok().body(records);
         
     }
+    @PutMapping("/t")
+    public void a(@RequestBody  CpfDto data){
+        service.createRigsterPoint(data);
+    }
+
 
 
     

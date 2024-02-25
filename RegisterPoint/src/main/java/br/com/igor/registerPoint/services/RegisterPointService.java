@@ -4,11 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import br.com.igor.registerPoint.domain.QueryRegisterPoint;
+import br.com.igor.registerPoint.domain.RegisterPoint;
+import br.com.igor.registerPoint.domain.dto.CpfDto;
 import br.com.igor.registerPoint.domain.dto.RegistePointSearchDTO;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
@@ -42,13 +45,43 @@ public class RegisterPointService {
             if (records != null) {
                 return buildRegisterPoint(records, user, data);
             } else {
-                throw new RegisterPointNotFoundException(user.getName() + " don't have any register");
+                throw new RegisterPointNotFoundException("Don't have any records for this user");
             }
         } else {
             throw new UserNotFoundException("User not Found");
         }
 
 
+    }
+
+    @Transactional
+    public String createRigsterPoint(CpfDto data){
+
+
+        User user = userRepository.findByCpf(data.cpf());
+        LocalDateTime now = LocalDateTime.now();
+
+        if(user != null ){
+
+
+
+            List<QueryRegisterPoint> listStatus = registerPointRepository.findRegisterByDay(now.getDayOfMonth(),now.getMonthValue(), now.getYear(),user.getId());
+            if(listStatus.isEmpty()){
+                RegisterPoint registerPoint = new RegisterPoint(user,StatusCheck.IN,now);
+                registerPointRepository.save(registerPoint);
+            }else if(listStatus.size() == 1 && listStatus.get(0).status() == StatusCheck.IN){
+                RegisterPoint registerPoint = new RegisterPoint(user,StatusCheck.OUT,now);
+                registerPointRepository.save(registerPoint);
+
+            }else{
+                QueryRegisterPoint queryregisterPoint = listStatus.stream()
+                        .filter(registerPoints -> registerPoints.status() ==StatusCheck.OUT).findFirst().orElse(null);
+                RegisterPoint r = registerPointRepository.findById(queryregisterPoint.id()).orElseThrow(() -> new RegisterPointNotFoundException("Not Found Register Point"));
+                registerPointRepository.RegisterARepeatDate(LocalDateTime.now(),r.getId());
+            }
+
+        }
+        return "registred";
     }
 
     private StringBuilder buildRegisterPoint(List<RegisterPointDto> listDto, User user, RegistePointSearchDTO rpsDto) {
