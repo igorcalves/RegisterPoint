@@ -99,6 +99,10 @@ public class RegisterPointService {
         List<RegisterPointDto> in = chooseList(listDto, StatusCheck.IN);
         List<RegisterPointDto> out = chooseList(listDto, StatusCheck.OUT);
 
+        sb.append("Name: " + user.getName());
+        sb.append("   Cpf: " + user.getCpf());
+        sb.append("    Department: " + user.getDepartment() + "\n");
+        sb.append("Date           Registers\n");
         int i  = 0;
         while(!currentDay.isAfter(endOfMonth))
         {
