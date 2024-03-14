@@ -102,7 +102,10 @@ public class RegisterPointService {
         sb.append("Name: " + user.getName());
         sb.append("   Cpf: " + user.getCpf());
         sb.append("    Department: " + user.getDepartment() + "\n");
-        sb.append("Date           Registers\n");
+        sb.append("Start time of Workday     "+ user.getStartOfTheWorkday());
+        sb.append("        End time of Workday     "+ user.getEndOfTheWorkday());
+
+        sb.append("\nDate           Registers\n");
         int i  = 0;
         while(!currentDay.isAfter(endOfMonth))
         {
@@ -129,9 +132,6 @@ public class RegisterPointService {
                     } else sb.append("      ");
                 }
                 sb.append(" \n");
-
-                System.out.println(sb);
-
                     currentDay = currentDay.plusDays(1);
 
             }

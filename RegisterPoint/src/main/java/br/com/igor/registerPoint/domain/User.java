@@ -4,6 +4,7 @@ package br.com.igor.registerPoint.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import br.com.igor.registerPoint.domain.dto.UserDTO;
 import jakarta.persistence.Column;
@@ -36,7 +37,8 @@ public class User {
 		this.department = data.getDepartment();
 		this.salary = data.getSalary();
 		this.timestamp = LocalDateTime.now();
-        this.countRegister = data.getCountRegister();
+        this.startOfTheWorkday = data.getStartOfTheWorkday();
+        this.endOfTheWorkday = data.getEndOfTheWorkday();
         
 
 	}
@@ -60,9 +62,11 @@ public class User {
     private BigDecimal salary;
     @Column(nullable = false)
     private LocalDateTime timestamp;
-    @Column(nullable = false,name = "COUNT_REGISTER")
-    private Integer countRegister;
     private Boolean enabled = true;
+    @Column(nullable = false)
+    private LocalTime startOfTheWorkday;
+    @Column(nullable = false)
+    private LocalTime endOfTheWorkday;
 
     
 

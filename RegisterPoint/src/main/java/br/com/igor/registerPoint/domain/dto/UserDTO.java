@@ -2,9 +2,11 @@ package br.com.igor.registerPoint.domain.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import br.com.igor.registerPoint.domain.Department;
 import br.com.igor.registerPoint.domain.PositionJob;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +28,7 @@ public class UserDTO {
     private LocalDateTime timestamp;
     private Integer countRegister;
     private Boolean enabled;
+    private LocalTime startOfTheWorkday;
+    private LocalTime endOfTheWorkday;
     
 }
