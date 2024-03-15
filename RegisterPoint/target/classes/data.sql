@@ -1,6 +1,6 @@
 INSERT INTO USERS(ID, NAME, ADDRESS, AGE, CPF, SALARY, DEPARTMENT, POSITION, TIMESTAMP, Start_OF_THE_WORKDAY, End_OF_THE_WORKDAY, ENABLED)
 VALUES
-    ('e51739bb-9b6a-4db7-826c-93627781f4d1', 'Igor Alves da Silva', 'R. da Casa Do Pão', 26, '455662366395', 13000, 0, 0, '2017-05-20 12:30:00','07:00:00','17:00:00',TRUE),
+    ('e51739bb-9b6a-4db7-826c-93627781f4d1', 'Igor Alves da Silva', 'R. da Casa Do Pão', 26, '455662366395', 13000, 0, 0, '2017-05-20 12:30:00','09:00:00','17:00:00',TRUE),
     ('327a58d2-2d91-4922-af24-1c71546bda7f', 'João da Silva', 'Rua das Flores', 35, '12345678901', 4000, 1, 2, '2016-08-10 08:45:00','07:00:00','17:00:00',TRUE),
     ('03e97e55-63f3-4295-9d26-3db8ef2c5e52', 'Maria Oliveira', 'Av. Central', 40, '98765432109', 3500, 2, 1, '2015-11-25 15:20:00','07:00:00','17:00:00',TRUE),
     ('9e4dcb5f-aa12-45ee-b2a7-493e98f9fb64', 'Carlos Santos', 'Rua dos Pássaros', 30, '56789012345', 3200, 0, 0, '2016-02-17 09:10:00','07:00:00','17:00:00',TRUE),
